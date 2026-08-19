@@ -472,12 +472,6 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-## 📬 Contact
-
-- **Issues:** [GitHub Issues](https://github.com/YOUR_USERNAME/delhivery-network-intelligence/issues)
-- **Docs:** [`docs/`](docs/)
-
----
 
 <div align="center">
 
