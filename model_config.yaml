@@ -1,0 +1,192 @@
+# ============================================================
+# Delhivery Network Intelligence — Model & Pipeline Configuration
+# ============================================================
+
+# ── Data ──────────────────────────────────────────────────────
+data:
+  raw_path:       "data/raw/delivery_data.csv"
+  processed_dir:  "data/processed/"
+  sample_path:    "data/sample/delivery_sample_5k.csv"
+  train_split:    "training"   # value of the 'data' column
+  test_split:     "test"
+  random_seed:    42
+
+# ── Outlier Handling ──────────────────────────────────────────
+outliers:
+  strategy:       "winsorize"  # winsorize | drop | none
+  lower_pct:      0.01
+  upper_pct:      0.99
+  group_col:      "route_type" # apply per-group
+
+# ── Graph Construction ────────────────────────────────────────
+graph:
+  min_trip_count: 1
+  delay_ratio_cap: 10.0
+  embedding_dim:  32           # SVD node embedding dimensions
+  community_method: "greedy_modularity"
+  risk_score_weights:
+    betweenness: 0.30
+    sla_breach:  0.25
+    delay_ratio: 0.20
+    throughput:  0.15
+    pagerank:    0.10
+
+# ── Feature Engineering ───────────────────────────────────────
+features:
+  target_column:    "actual_time"
+  exclude_leakage:  ["factor", "segment_factor", "od_end_time",
+                     "cutoff_timestamp", "segment_actual_time"]
+  base_features:
+    - route_type_enc
+    - log_osrm_time
+    - log_osrm_dist
+    - log_distance
+    - osrm_speed
+    - dist_time_ratio
+    - hour
+    - dow
+    - month
+    - is_weekend
+    - is_rush_hour
+    - hour_sin
+    - hour_cos
+    - dow_sin
+    - dow_cos
+    - month_sin
+    - month_cos
+    - network_load_norm
+    - cutoff_factor
+
+# ── Baseline Models ───────────────────────────────────────────
+baseline:
+  random_forest:
+    n_estimators:       60
+    max_depth:          14
+    min_samples_leaf:   10
+    n_jobs:             -1
+    random_state:       42
+  linear_regression:
+    fit_intercept:      true
+
+# ── Advanced Models (v2) ──────────────────────────────────────
+advanced:
+  histgbm_global:
+    max_iter:             500
+    learning_rate:        0.05
+    max_depth:            9
+    min_samples_leaf:     15
+    l2_regularization:    0.05
+    max_bins:             255
+    early_stopping:       true
+    validation_fraction:  0.10
+    n_iter_no_change:     30
+    random_state:         42
+
+  histgbm_ftl:
+    max_iter:             500
+    learning_rate:        0.05
+    max_depth:            8
+    min_samples_leaf:     15
+    l2_regularization:    0.10
+    max_bins:             255
+    early_stopping:       true
+    validation_fraction:  0.10
+    n_iter_no_change:     25
+    random_state:         42
+
+  histgbm_carting:
+    max_iter:             300
+    learning_rate:        0.06
+    max_depth:            7
+    min_samples_leaf:     10
+    l2_regularization:    0.20
+    max_bins:             255
+    early_stopping:       true
+    validation_fraction:  0.10
+    n_iter_no_change:     25
+    random_state:         42
+
+  blend:
+    histgbm_weight:     0.55
+    per_route_weight:   0.45
+    optimise_blend:     true    # grid search in [0.2, 0.8]
+
+# ── Boosted Models: XGBoost / LightGBM (src/training/boosted_models.py) ──
+boosted:
+  xgboost_global:
+    n_estimators:          600
+    learning_rate:         0.04
+    max_depth:             7
+    min_child_weight:      5
+    subsample:             0.85
+    colsample_bytree:      0.80
+    reg_lambda:             1.0
+    reg_alpha:              0.1
+    tree_method:           "hist"
+    early_stopping_rounds: 40
+    random_state:          42
+
+  xgboost_per_route:
+    n_estimators:          500
+    learning_rate:         0.04
+    max_depth:             7
+    min_child_weight:      5
+    subsample:             0.85
+    colsample_bytree:      0.80
+    reg_lambda:             1.0
+    tree_method:           "hist"
+    early_stopping_rounds: 30
+    random_state:          42
+
+  lightgbm_global:
+    n_estimators:          800
+    learning_rate:         0.03
+    max_depth:             8
+    num_leaves:             63
+    min_child_samples:      20
+    subsample:              0.85
+    colsample_bytree:       0.80
+    reg_lambda:              1.0
+    reg_alpha:               0.1
+    early_stopping_rounds:  40
+    random_state:            42
+
+  lightgbm_per_route:
+    n_estimators:          700
+    learning_rate:         0.03
+    max_depth:             8
+    num_leaves:             63
+    min_child_samples:      15
+    subsample:              0.85
+    colsample_bytree:       0.80
+    reg_lambda:              1.0
+    early_stopping_rounds:  30
+    random_state:            42
+
+  stacking_ensemble_v2:
+    base_learners: ["random_forest", "histgbm", "extra_trees", "xgboost", "lightgbm"]
+    meta_learner:  "ridge"
+    meta_alpha:    1.0
+    cv_folds:      3
+
+  blend_v2:
+    optimise_blend: true       # grid search in [0.3, 0.85]
+
+# ── Evaluation ────────────────────────────────────────────────
+evaluation:
+  cv_folds:         5
+  primary_metric:   "rmse"
+  tolerance_levels: [0.15, 0.20]
+
+# ── Dashboard ─────────────────────────────────────────────────
+dashboard:
+  port:     8501
+  theme:    "dark"
+  host:     "localhost"
+
+# ── Paths ─────────────────────────────────────────────────────
+paths:
+  models_dir:   "models/"
+  reports_dir:  "outputs/"
+  visuals_dir:  "assets/visuals/"
+  logs_dir:     "logs/"
