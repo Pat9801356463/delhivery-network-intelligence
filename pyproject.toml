@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "delhivery-network-intelligence"
+version = "2.0.0"
+description = "Graph-powered delivery ETA optimization for logistics networks"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+keywords = [
+    "graph-ml", "logistics", "eta-prediction", "network-analysis",
+    "gradient-boosting", "supply-chain", "delivery-optimization"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.3.0",
+    "networkx>=3.1.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "streamlit>=1.28.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "isort>=5.12",
+    "flake8>=6.0",
+    "mypy>=1.0",
+]
+docs = [
+    "mkdocs>=1.5",
+    "mkdocs-material>=9.0",
+]
+
+[project.urls]
+Homepage      = "https://github.com/YOUR_USERNAME/delhivery-network-intelligence"
+Documentation = "https://github.com/YOUR_USERNAME/delhivery-network-intelligence/tree/main/docs"
+Issues        = "https://github.com/YOUR_USERNAME/delhivery-network-intelligence/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.black]
+line-length    = 100
+target-version = ["py39", "py310", "py311"]
+
+[tool.isort]
+profile        = "black"
+line_length    = 100
+
+[tool.pytest.ini_options]
+testpaths      = ["tests"]
+python_files   = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

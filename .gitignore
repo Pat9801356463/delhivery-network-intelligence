@@ -1,0 +1,85 @@
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+pip-wheel-metadata/
+
+# ── Virtual environments ──────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.env
+.conda/
+
+# ── Jupyter Notebooks ─────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Data — raw & processed (too large for git) ────────────────
+data/raw/
+data/processed/
+# Keep sample data
+!data/sample/
+
+# ── Model artefacts (large binaries) ─────────────────────────
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.pt
+models/*.onnx
+# Keep model directory structure
+!models/.gitkeep
+
+# ── Feature store (very large) ────────────────────────────────
+outputs/feature_store.pkl
+outputs/*_clean*.csv
+outputs/train_*.csv
+outputs/test_*.csv
+
+# ── OS files ──────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── IDE ───────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# ── Testing ───────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+coverage.xml
+
+# ── Logs ──────────────────────────────────────────────────────
+logs/
+*.log
+*.log.*
+
+# ── Streamlit ─────────────────────────────────────────────────
+.streamlit/secrets.toml
+
+# ── Misc ──────────────────────────────────────────────────────
+*.zip
+*.tar.gz
+*.bak
+.hypothesis/
