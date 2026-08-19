@@ -1,0 +1,259 @@
+MEMORANDUM
+
+TO:      Head of Network Operations, Delhivery
+FROM:    Network Intelligence & Analytics Team
+DATE:    June 2026
+RE:      Logistics Network Optimization — Strategic Recommendations
+         (Confidential — For Executive Review)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EXECUTIVE SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Our analysis of 144,867 shipments across 1,657 facilities and 2,783 active
+corridors reveals a network operating at significant stress — with 82% of
+shipments failing SLA commitments and actual delivery times running nearly
+2× above OSRM routing estimates across all route types.
+
+The root cause is not road congestion alone. The network has developed
+structural vulnerabilities: a small number of high-centrality facilities
+are absorbing disproportionate shipment volume while operating at above-
+average delay rates. Three facilities alone touch 39% of all network trips
+and exhibit SLA breach rates exceeding 93%.
+
+This memo identifies the five most critical intervention points, quantifies
+their business impact, and provides a 90-day implementation roadmap.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. NETWORK DIAGNOSIS — THE STRUCTURAL PROBLEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The Delhivery network is not failing uniformly. It is failing at specific
+chokepoints that cascade delays across downstream routes. Key findings:
+
+  • Median delay factor:  1.86× OSRM estimate (nationwide average)
+  • SLA breach rate:      82.0% of all shipments
+  • Chronic delay rate:   94.5% of corridors experience 20%+ delay
+  • Cross-regional corridors (13.7% of network) carry the highest
+    delay ratios and lowest SLA compliance
+
+The network has 159 distinct geographic communities. Corridors that cross
+community boundaries show systematically higher delays — indicating that
+inter-regional handoff processes are a primary source of service failure.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. TOP 5 BOTTLENECK HUBS — PRIORITY UPGRADE LIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The following five facilities were identified through a composite risk model
+combining network centrality, throughput, delay contribution, and SLA impact:
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Rank │ Facility      │ Risk    │ Trips   │ SLA    │ Delay  │ Priority   │
+│      │               │ Score   │ Handled │ Breach │ Factor │            │
+├──────┼───────────────┼─────────┼─────────┼────────┼────────┼────────────┤
+│  #1  │ IND562132AAA  │  0.688  │ 20,994  │  93.1% │  1.72× │ CRITICAL   │
+│  #2  │ IND000000ACB  │  0.680  │ 38,539  │  94.7% │  1.79× │ CRITICAL   │
+│  #3  │ IND110037AAM  │  0.591  │  5,782  │  91.1% │  2.06× │ HIGH       │
+│  #4  │ IND160002AAC  │  0.570  │  5,324  │  85.0% │  1.85× │ HIGH       │
+│  #5  │ IND421302AAG  │  0.558  │ 14,580  │  90.2% │  1.97× │ HIGH       │
+└─────────────────────────────────────────────────────────────────────────┘
+
+IND000000ACB is the single highest-throughput risk facility, processing
+38,539 trips — more than any other facility in the network — while
+maintaining a 94.7% SLA breach rate. This facility alone is a systemic
+risk to national delivery commitments.
+
+IND562132AAA has the highest network centrality score (betweenness: 17.4%)
+meaning that nearly 1-in-5 network paths passes through this hub. Any
+disruption here cascades broadly across the network — a single-point-of-
+failure risk that must be addressed through capacity expansion or bypass
+routing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. TOP DELAY CORRIDORS — CHRONIC UNDERPERFORMERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Of 2,783 active corridors, 2,083 (74.8%) show chronic delays exceeding
+20% above OSRM estimates. The worst performers show delays of 300–3,000%
+above estimates — indicating not just traffic friction but fundamental
+route design or facility capacity failures.
+
+Five corridor cluster profiles require differentiated responses:
+
+  EXTREME DELAY CLUSTER (6 corridors, avg 2,277% over OSRM):
+  These corridors appear to have structural routing errors — either the
+  OSRM model is calibrated for a route that no longer exists, or freight
+  is being routed through inappropriate intermediate stops. Immediate
+  route redesign and direct carrier engagement is required.
+
+  LONG-HAUL RISK CLUSTER (57 corridors, avg 570km, 100% FTL):
+  Long-distance FTL routes show high SLA breach rates (97.7%) driven by
+  cumulative dwell time at intermediate hubs. A direct-to-destination
+  service model with locked departure windows would recover an estimated
+  8-12% of SLA performance on these lanes.
+
+  HIGH-VOLUME RISK CLUSTER (Cluster B, avg 772 trips/corridor):
+  These high-frequency corridors are the most revenue-critical. Even
+  modest delay improvements (5-10%) would recover thousands of SLA
+  commits per month.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. ROOT CAUSE ANALYSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Based on model analysis and corridor profiling, four root causes explain
+the majority of network delay:
+
+  1. HUB DWELL TIME — Shipments wait at consolidation hubs beyond OSRM
+     assumptions. The OSRM model treats transit as continuous; reality
+     involves loading, sorting, and departure scheduling delays that can
+     add 40-120 minutes per hub touch.
+
+  2. OSRM CALIBRATION GAP — Across the network, actual times average
+     1.86× OSRM estimates. OSRM uses road speed data without accounting
+     for freight vehicle restrictions, loading time, or hub processing.
+     The model's estimates are systematically optimistic by ~86%.
+
+  3. CROSS-REGIONAL HANDOFFS — The 13.7% of corridors crossing regional
+     community boundaries show disproportionate delay. These represent
+     points where ownership, SLA accountability, and coordination are
+     least well-defined.
+
+  4. ROUTE TYPE MISMATCH — Carting is being used on corridors where FTL
+     would reduce delay, and vice versa. Our route recommendation engine
+     identifies 1,485 corridors where the current route type is likely
+     suboptimal based on distance, volume, and delay profile.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5. RECOMMENDED INTERVENTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+INTERVENTION 1 — EMERGENCY HUB CAPACITY UPGRADE (IND000000ACB)
+  Action:    Expand throughput capacity; introduce departure scheduling
+             system; reduce dwell time target from unmanaged to ≤45 min
+  Owner:     VP, Hub Operations
+  Timeline:  30 days
+  Impact:    Affects 38,539 trips; potential to recover 5-8% SLA rate
+
+INTERVENTION 2 — BYPASS ROUTING FOR IND562132AAA
+  Action:    Design alternative routing paths that reduce dependency on
+             this single hub; implement load-balancing across neighboring
+             facilities IND562134 and IND562100 (if capacity exists)
+  Owner:     Network Design Team
+  Timeline:  45 days
+  Impact:    Reduces single-point-of-failure risk; estimated 3-5% network
+             delay reduction on affected corridors
+
+INTERVENTION 3 — OSRM MODEL RECALIBRATION
+  Action:    Deploy our graph-enhanced ETA model as the primary scheduling
+             signal, replacing raw OSRM estimates; the new model improves
+             prediction accuracy by 13.6% RMSE and lifts ±15% accuracy
+             from 49.1% to 59.2% of all shipments
+  Owner:     Data Science / Engineering
+  Timeline:  21 days (model is ready to deploy)
+  Impact:    Immediate improvement in customer-facing ETA communication;
+             better scheduling visibility for operations teams
+
+INTERVENTION 4 — CORRIDOR ROUTE TYPE OPTIMIZATION
+  Action:    Review 1,485 corridors flagged as potentially misrouted;
+             pilot FTL-to-Carting or Carting-to-FTL switches on top 50
+             corridors by volume × delay score
+  Owner:     Network Planning
+  Timeline:  60 days
+  Impact:    Estimated 8-15% delay reduction on switched corridors;
+             cost reduction from right-sizing vehicle type to load
+
+INTERVENTION 5 — INTER-REGIONAL SLA GOVERNANCE
+  Action:    Establish SLA ownership and escalation protocols specifically
+             for the 380 cross-regional corridors; implement real-time
+             delay alerts at regional handoff points
+  Owner:     Operations Excellence
+  Timeline:  45 days
+  Impact:    Structural improvement in accountability; expected 5-10%
+             reduction in inter-regional delay incidents
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6. BUSINESS IMPACT — QUANTIFIED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Monte Carlo simulation (5,000 iterations) on the effect of upgrading the
+top 3 bottleneck hubs:
+
+  ┌─────────────────────┬──────────────┬───────────────┬──────────────┐
+  │ Metric              │ Worst Case   │ Expected      │ Best Case    │
+  ├─────────────────────┼──────────────┼───────────────┼──────────────┤
+  │ SLA Breaches Avoided│  ~3,973      │  ~10,629      │  ~18,677     │
+  │ SLA Rate Improvement│  82% → 78%   │  82% → 75%    │  82% → 69%   │
+  │ % Breach Eliminated │  4.5%        │  9.0%         │  15.7%       │
+  │ Est. Investment     │  $2M         │  $3.5M        │  $5M         │
+  └─────────────────────┴──────────────┴───────────────┴──────────────┘
+
+  The ETA model deployment (Intervention 3) has near-zero marginal cost
+  and delivers immediate accuracy improvement — this should be the first
+  action taken.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+7. FTL vs CARTING — STRATEGIC GUIDANCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Corridors >150km with volume >20 trips/week: DEFAULT to FTL
+    (direct, faster, lower per-unit dwell at consolidation)
+
+  • Corridors <50km or <10 trips/week: DEFAULT to Carting
+    (consolidation advantage outweighs speed penalty at short distance)
+
+  • Corridors 50-150km: Use our route recommendation engine score
+    (available in the Streamlit dashboard for real-time querying)
+
+  • For all high-risk corridors (SLA breach >85%): Regardless of route
+    type, implement departure time locking and dwell time SLAs at source
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+8. IMPLEMENTATION ROADMAP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  WEEK 1-3  (Immediate):
+    ✓ Deploy graph-enhanced ETA model into production scheduling
+    ✓ Initiate emergency capacity review for IND000000ACB
+    ✓ Brief regional ops leads on cross-boundary SLA accountability
+
+  WEEK 4-6  (Short-term):
+    ✓ Implement dwell time SLAs at top 3 bottleneck hubs
+    ✓ Design bypass routing plan for IND562132AAA
+    ✓ Launch pilot route type switches on top 50 misrouted corridors
+
+  WEEK 7-12 (Medium-term):
+    ✓ Full bypass routing activation for Hub #1
+    ✓ Expand route type pilot to top 200 corridors
+    ✓ Inter-regional SLA governance framework live
+    ✓ 30-day review of simulation projections vs actuals
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONCLUSION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The Delhivery network has a recoverable performance gap. The primary
+barriers are structural — not operational — and are addressable through
+targeted hub investment, routing optimization, and ETA model modernization.
+
+The highest-leverage single action is deploying the graph-enhanced ETA
+prediction system immediately. It requires no capital investment, is ready
+for production deployment, and will improve ETA accuracy for nearly 1 in
+10 additional shipments on day one.
+
+The strategic priority beyond that is IND000000ACB. At 38,539 trips with
+a 94.7% SLA breach rate, it is the most consequential single facility in
+the network. Every week of inaction compounds revenue and customer trust
+risk at scale.
+
+We recommend convening a cross-functional working group (Operations, Network
+Design, Data Science) within 5 business days to align on the deployment
+plan for Interventions 1 and 3 before proceeding with the broader roadmap.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Prepared by: Network Intelligence & Graph Analytics Team
+Classification: Confidential — Executive Distribution Only
+Tools: NetworkX Graph ML | Random Forest + Graph Feature Ensemble |
+       Monte Carlo Simulation | Community Detection (Greedy Modularity)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

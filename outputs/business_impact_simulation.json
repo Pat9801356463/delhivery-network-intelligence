@@ -1,0 +1,32 @@
+{
+  "worst_case": {
+    "delay_reduction_pct": 10.0,
+    "mean_breaches_avoided": 5331,
+    "p10_breaches_avoided": 3973,
+    "p90_breaches_avoided": 6680,
+    "mean_pct_breach_reduction": 4.5,
+    "new_overall_breach_rate": 78.3,
+    "upgrade_cost_m_usd": 2.0,
+    "affected_trips": 56999
+  },
+  "expected": {
+    "delay_reduction_pct": 20.0,
+    "mean_breaches_avoided": 10629,
+    "p10_breaches_avoided": 7847,
+    "p90_breaches_avoided": 13403,
+    "mean_pct_breach_reduction": 9.0,
+    "new_overall_breach_rate": 74.6,
+    "upgrade_cost_m_usd": 3.5,
+    "affected_trips": 56999
+  },
+  "best_case": {
+    "delay_reduction_pct": 35.0,
+    "mean_breaches_avoided": 18677,
+    "p10_breaches_avoided": 13922,
+    "p90_breaches_avoided": 23476,
+    "mean_pct_breach_reduction": 15.7,
+    "new_overall_breach_rate": 69.1,
+    "upgrade_cost_m_usd": 5.0,
+    "affected_trips": 56999
+  }
+}

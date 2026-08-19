@@ -1,0 +1,9 @@
+Model,Phase,MAE,RMSE,R2,Within15pct,Within20pct
+RF+Graph ORIGINAL,v1-Original,38.56,91.59,0.9785,59.2,68.0
+RF+Graph v2 (cleaned targets),v2-RF,35.1,79.8,0.9832,61.9,71.7
+HistGBM (LightGBM-equiv) Base,v2-HistGBM,48.05,96.35,0.9755,46.78,55.78
+HistGBM (LightGBM-equiv) + Graph,v2-HistGBM,36.14,80.4,0.983,61.03,70.27
+Per-Route HistGBM (FTL+Carting split),v2-PerRoute,35.83,80.58,0.9829,61.91,71.27
+FTL-specific HistGBM,v2-FTL-only,46.69,96.99,0.9798,71.4,79.87
+Carting-specific HistGBM,v2-Cart-only,14.39,27.27,0.7812,43.19,54.31
+Blend HistGBM+PerRoute (w=0.55),v2-BEST,35.62,80.03,0.9831,61.72,71.07

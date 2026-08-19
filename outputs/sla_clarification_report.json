@@ -1,0 +1,10 @@
+{
+  "original_breach_rate_pct": 82.0,
+  "realistic_breach_rate_pct": 79.9,
+  "severe_delay_pct": 36.4,
+  "interpretation": "is_cutoff=True means shipment missed scheduled cutoff window. 82% breach rate is real but reflects that OSRM-derived cutoff windows systematically underestimate actual time by 1.86\u00d7.",
+  "root_cause": "Cutoff windows set at OSRM speed; network runs at 1.86\u00d7 OSRM. Fix scheduling = fix apparent breach rate.",
+  "std_reduction_pct": 1.3,
+  "rows_before": 144867,
+  "rows_after": 144867
+}
