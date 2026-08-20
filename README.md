@@ -474,57 +474,14 @@ delhivery-network-intelligence/
 
 ---
 
-## 🗺️ Future Improvements
-
-| Priority | Improvement | Expected Impact |
-|----------|-------------|----------------|
-| ✅ Done | XGBoost/LightGBM integration | See [`src/training/boosted_models.py`](src/training/boosted_models.py) below |
-| 🔴 High | Real-time OSRM recalibration pipeline | Eliminate scheduling bias |
-| 🟡 Medium | GraphSAGE / Graph Attention Network | Deeper structural representation |
-| 🟡 Medium | Temporal graph convolution | Time-aware delay propagation |
-| 🟡 Medium | REST API deployment (FastAPI) | Production serving |
-| 🟢 Low | Geospatial corridor visualisation | Map-based delay explorer |
-| 🟢 Low | Automated hub upgrade ROI calculator | Direct operational tool |
-| 🟢 Low | Anomaly detection on corridor delays | Real-time alerting |
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome. Please follow these steps:
-
-1. **Fork** the repository
-2. **Create a branch:** `git checkout -b feat/your-feature`
-3. **Make changes** with tests
-4. **Run tests:** `python3 -m unittest discover tests/ -v`
-5. **Commit:** Use conventional commit messages (e.g. `feat:`, `fix:`, `docs:`)
-6. **Push** and open a Pull Request
-
-### Code Style
-
-- Follow PEP 8
-- Docstrings on all public functions and classes
-- Type hints recommended
-
----
-
 ## 📄 License
 
 MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-## 📬 Contact
-
-- **Issues:** [GitHub Issues](https://github.com/YOUR_USERNAME/delhivery-network-intelligence/issues)
-- **Docs:** [`docs/`](docs/)
-
----
-
 <div align="center">
 
-*Built with rigour. Tested with care. Documented for production.*
-
-**⭐ Star this repo if it helped you!**
+**Built by Sarvagya Tiwari, Jinay Mehta, Pratyush Upadhyay, Sundaram Pandey !**
 
 </div>
