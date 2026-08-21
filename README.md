@@ -203,6 +203,10 @@ over the HistGBM reference. The README's projected 3-5% is expected to hold
 regularisation and leaf-wise growth (LightGBM) typically show a larger edge
 over HistGBM as data volume and feature interactions grow — worth
 re-benchmarking once `data/raw/delivery_data.csv` is available.
+| Model | RMSE | ±15% Acc |
+| HistGBM (reference) |	86.1 |	63.3% |
+| LightGBM + Graph |	83.8 |	64.0% |
+| Stacked Ensemble v2 |	84.8 |	68.1% |
 
 `ETAPredictor.load_boosted(...)` (in `src/inference/predictor.py`) merges
 `models/boosted_models.pkl` into the standard predictor, so `predict(...,
