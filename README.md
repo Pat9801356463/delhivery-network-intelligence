@@ -227,28 +227,6 @@ alongside the default `"histgbm"`.
 | #4 | IND160002AAC | 0.570 | 17.5% | 5,324 | 85.0% |
 | #5 | IND421302AAG | 0.558 | 13.2% | 14,580 | 90.2% |
 
-### Visualisations
-
-<table>
-<tr>
-<td><img src="assets/visuals/05_bottleneck_hub_network.png" width="400"/></td>
-<td><img src="assets/visuals/16_improved_model_benchmark.png" width="400"/></td>
-</tr>
-<tr>
-<td align="center"><em>Bottleneck Hub Network</em></td>
-<td align="center"><em>Improvement Benchmark</em></td>
-</tr>
-<tr>
-<td><img src="assets/visuals/13_business_impact_simulation.png" width="400"/></td>
-<td><img src="assets/visuals/17_sla_perroute_analysis.png" width="400"/></td>
-</tr>
-<tr>
-<td align="center"><em>Business Impact Simulation</em></td>
-<td align="center"><em>SLA & Per-Route Analysis</em></td>
-</tr>
-</table>
-
----
 
 ## 🛠️ Tech Stack
 
